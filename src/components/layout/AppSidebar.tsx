@@ -57,6 +57,8 @@ export function AppSidebar() {
           <span>Liked Songs</span>
         </NavLink>
 
+        <CreatePlaylistButton />
+
         {playlists.map((pl) => (
           <NavLink
             key={pl.id}

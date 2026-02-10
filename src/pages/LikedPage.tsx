@@ -11,8 +11,8 @@ export default function LikedPage() {
   return (
     <div className="p-6">
       <div className="flex items-center gap-4 mb-8">
-        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-blue-400 flex items-center justify-center">
-          <Heart className="w-8 h-8 text-white fill-white" />
+        <div className="w-16 h-16 rounded-xl bg-primary/80 flex items-center justify-center">
+          <Heart className="w-8 h-8 text-primary-foreground fill-primary-foreground" />
         </div>
         <div>
           <h1 className="text-3xl font-display font-bold">Liked Songs</h1>
