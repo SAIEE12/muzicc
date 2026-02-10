@@ -1,6 +1,7 @@
 import { Home, Search, Library, ListMusic, Heart, Upload } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { usePlayer } from "@/contexts/PlayerContext";
+import { CreatePlaylistButton } from "@/components/CreatePlaylistButton";
 import { cn } from "@/lib/utils";
 
 const mainNav = [
