@@ -12,20 +12,20 @@ const Index = () => {
   return (
     <div className="p-6 pb-4">
       <header className="mb-8">
-        <h1 className="text-3xl font-display font-bold mb-1">Good evening</h1>
-        <p className="text-muted-foreground">Welcome back to Resonance</p>
+        <h1 className="text-3xl font-display font-bold mb-1">Welcome to the Lounge</h1>
+        <p className="text-muted-foreground italic">Spin some records on Resonance</p>
       </header>
 
       {tracks.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 gap-4">
-          <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center">
+          <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center border-2 border-border">
             <ListMusic className="w-10 h-10 text-muted-foreground" />
           </div>
-          <h2 className="text-xl font-display font-semibold">No music yet</h2>
-          <p className="text-muted-foreground text-center max-w-md">
-            Upload your first tracks to start building your personal music library.
+          <h2 className="text-xl font-display font-semibold">No records yet</h2>
+          <p className="text-muted-foreground text-center max-w-md italic">
+            Upload your first tracks to start building your personal collection.
           </p>
-          <Button asChild className="mt-2">
+          <Button asChild className="mt-2 brass-button text-primary-foreground border-0 hover:brightness-110">
             <Link to="/upload"><Upload className="w-4 h-4 mr-2" />Upload Music</Link>
           </Button>
         </div>

@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Outfit", "sans-serif"],
-        body: ["DM Sans", "sans-serif"],
+        display: ["Playfair Display", "serif"],
+        body: ["Lora", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -64,6 +64,11 @@ export default {
         player: {
           DEFAULT: "hsl(var(--player-background))",
         },
+        brass: {
+          DEFAULT: "hsl(var(--brass))",
+          highlight: "hsl(var(--brass-highlight))",
+          shadow: "hsl(var(--brass-shadow))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -79,10 +84,15 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "vinyl-spin": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "vinyl-spin": "vinyl-spin 3s linear infinite",
       },
     },
   },

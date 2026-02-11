@@ -2,7 +2,6 @@ import { Home, Search, Library, ListMusic, Heart, Upload } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { usePlayer } from "@/contexts/PlayerContext";
 import { CreatePlaylistButton } from "@/components/CreatePlaylistButton";
-import { cn } from "@/lib/utils";
 
 const mainNav = [
   { title: "Home", url: "/", icon: Home },
@@ -15,11 +14,11 @@ export function AppSidebar() {
   const { playlists } = usePlayer();
 
   return (
-    <aside className="flex flex-col w-60 shrink-0 bg-sidebar h-full overflow-hidden">
+    <aside className="flex flex-col w-60 shrink-0 bg-sidebar h-full overflow-hidden wood-texture border-r border-sidebar-border">
       {/* Logo */}
       <div className="p-6 pb-4">
         <h1 className="text-xl font-display font-bold text-foreground tracking-tight flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+          <span className="w-8 h-8 rounded-lg brass-button flex items-center justify-center">
             <ListMusic className="w-4 h-4 text-primary-foreground" />
           </span>
           Resonance
@@ -51,7 +50,7 @@ export function AppSidebar() {
           className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-sidebar-foreground hover:text-foreground hover:bg-sidebar-accent transition-colors"
           activeClassName="bg-sidebar-accent text-foreground"
         >
-          <span className="w-5 h-5 rounded bg-primary/80 flex items-center justify-center">
+          <span className="w-5 h-5 rounded brass-button flex items-center justify-center">
             <Heart className="w-3 h-3 text-primary-foreground fill-primary-foreground" />
           </span>
           <span>Liked Songs</span>
