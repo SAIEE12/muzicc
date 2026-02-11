@@ -48,34 +48,90 @@ function VinylDisc({ coverUrl, isPlaying }: { coverUrl?: string; isPlaying: bool
   }, [animate]);
 
   return (
-    <div className="w-14 h-14 rounded-full relative shrink-0" style={{ background: "hsl(0 0% 8%)" }}>
+    <div className="relative shrink-0" style={{ width: 72, height: 56 }}>
+      {/* Vinyl disc */}
+      <div className="w-14 h-14 rounded-full absolute left-0 top-0" style={{ background: "hsl(0 0% 8%)" }}>
+        <div
+          ref={discRef}
+          className="w-full h-full rounded-full relative"
+          style={{
+            background: `
+              radial-gradient(circle at 50% 50%, transparent 28%, hsl(0 0% 14%) 29%, hsl(0 0% 10%) 31%, hsl(0 0% 14%) 33%, hsl(0 0% 10%) 35%, hsl(0 0% 14%) 44%, hsl(0 0% 10%) 46%, hsl(0 0% 14%) 48%, hsl(0 0% 8%) 49%, hsl(0 0% 8%) 100%),
+              radial-gradient(circle at 35% 35%, hsl(0 0% 25% / 0.15) 0%, transparent 60%)
+            `,
+          }}
+        >
+          {/* Center label */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[38%] h-[38%] rounded-full overflow-hidden border border-muted-foreground/20" style={{ background: "hsl(25 20% 15%)" }}>
+              {coverUrl ? (
+                <img src={coverUrl} alt="" className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-[8px]">🎵</span>
+                </div>
+              )}
+            </div>
+          </div>
+          {/* Shine highlight */}
+          <div
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              background: "linear-gradient(135deg, hsl(0 0% 100% / 0.06) 0%, transparent 40%, transparent 60%, hsl(0 0% 100% / 0.03) 100%)",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Tonearm */}
       <div
-        ref={discRef}
-        className="w-full h-full rounded-full relative"
+        className="absolute pointer-events-none"
         style={{
-          background: `
-            radial-gradient(circle at 50% 50%, transparent 28%, hsl(0 0% 14%) 29%, hsl(0 0% 10%) 31%, hsl(0 0% 14%) 33%, hsl(0 0% 10%) 35%, hsl(0 0% 14%) 44%, hsl(0 0% 10%) 46%, hsl(0 0% 14%) 48%, hsl(0 0% 8%) 49%, hsl(0 0% 8%) 100%),
-            radial-gradient(circle at 35% 35%, hsl(0 0% 25% / 0.15) 0%, transparent 60%)
-          `,
+          top: -4,
+          right: -2,
+          width: 28,
+          height: 44,
+          transformOrigin: "80% 8px",
+          transform: `rotate(${isPlaying ? 22 : 0}deg)`,
+          transition: "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
-        {/* Center label */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[38%] h-[38%] rounded-full overflow-hidden border border-muted-foreground/20" style={{ background: "hsl(25 20% 15%)" }}>
-            {coverUrl ? (
-              <img src={coverUrl} alt="" className="w-full h-full object-cover" />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-[8px]">🎵</span>
-              </div>
-            )}
-          </div>
-        </div>
-        {/* Shine highlight */}
+        {/* Pivot point */}
         <div
-          className="absolute inset-0 rounded-full pointer-events-none"
+          className="absolute rounded-full"
           style={{
-            background: "linear-gradient(135deg, hsl(0 0% 100% / 0.06) 0%, transparent 40%, transparent 60%, hsl(0 0% 100% / 0.03) 100%)",
+            width: 8,
+            height: 8,
+            top: 4,
+            right: 2,
+            background: "radial-gradient(circle at 35% 35%, hsl(42 85% 65%), hsl(38 70% 45%))",
+            boxShadow: "0 0 3px hsl(25 30% 8% / 0.5)",
+          }}
+        />
+        {/* Arm */}
+        <div
+          className="absolute"
+          style={{
+            width: 2.5,
+            height: 32,
+            top: 8,
+            right: 4.5,
+            background: "linear-gradient(180deg, hsl(38 50% 55%), hsl(30 40% 40%))",
+            borderRadius: 1,
+            transformOrigin: "top center",
+            transform: "rotate(-8deg)",
+          }}
+        />
+        {/* Headshell / cartridge */}
+        <div
+          className="absolute"
+          style={{
+            width: 5,
+            height: 6,
+            bottom: 2,
+            left: 6,
+            background: "radial-gradient(circle at 40% 30%, hsl(42 80% 60%), hsl(30 50% 35%))",
+            borderRadius: 1,
           }}
         />
       </div>
